@@ -12,7 +12,7 @@ XeniaFlow Is a Windows Appliaction!
 
 This is a front end for Xenia.exe That is a Windows emulator for the xbox 360.
 
-With luck and help it might see the light of day!
+Version.1 It's Alive!
 
 We are using illchet3d, AutioIt, SciTe & Photoshop to make this project.
 
