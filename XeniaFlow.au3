@@ -289,7 +289,7 @@ Local $Fileformat = IniRead($INI, "Config", "FileFormat", -1)
 Global $Background_Image = IniRead($INI, "Config", "BackPic", -1)
 
 If _Singleton("XeniaFlow", 1) = 0 Then
-	MsgBox(48 + 0, "XeniaFlow ®  Warning", "An occurence of XeniaFlow is already running")
+	MsgBox(48 + 0, "XeniaFlow Â®  Warning", "An occurence of XeniaFlow is already running")
 	Exit
 EndIf
 
@@ -849,81 +849,15 @@ While IrrRun()
 		$Centred_Game = $_Move / $Cover_Distance
 
 		If _IsPressed("01") Or _IsPressed("0D") Then
-			$mouse_pos = MouseGetPos(0)
-			Local $coll = GetSceneNodeFromScreenCoordinatesBB(MouseGetPos(0), MouseGetPos(1))
-			For $i = 0 To $Gamer_count Step 1
-				If $coll = $Cover[$i][0] And $coll = $Cover[$Centred_Game][0] And $stateSettings = 0 Then
 
-					If $stateSettings = 1 Then
-						GUISetState(@SW_HIDE, $Settingsgui)
-						_WinAnimate($SettingsguiTrans, BitOR($AW_HIDE, $AW_CENTER), 300)
-						$stateSettings = 0
-					EndIf
+Local $Game_Path="F:\Console Games\Microsoft Xbox360 Games"
+Local $Xenia_Path="F:\Emulators\xenia\xenia.exe"
 
-					For $im = 0 To $Gamer_count Step 1
-						SetVisible($Cover_refletLeft[$im], 0)
-						SetVisible($Cover_refletRight[$im], 0)
-					Next
-					_SoundPlay($sound, 0)
-					For $deg = 0 To 180 Step 5
-						BeginScene(True, True, 0, $icolor_red, $icolor_green, $icolor_blue)
-						SetRotation($Cover[$Centred_Game][0], 0, $deg, 0)
-						RemoveAnimators($Cover[$Centred_Game][0])
-						SetPosition($Cover[$Centred_Game][0], GetAbsolutePosition($Cover[$Centred_Game][0], "X") + 2, 0, GetAbsolutePosition($Cover[$Centred_Game][0], "Z") + 5.5)
-						AddCameraSceneNode(0, 0, 0, $deg + 200, 0, 0, 0)
-						SceneDraw()
-						GuiDraw()
-						EndScene()
-						Sleep(1)
-					Next
+Local $hsearch = FileFindFirstFile($Game_Path & "" & $cover[$_move / $cover_distance][1] & "" & "*.xex")
+Local $iresult = $idok, $sfilename = FileFindNextFile($hsearch)
 
-					$Centred_GameMovement = createFlyCircleAnimator(GetAbsolutePosition($Cover[$Centred_Game][0], "X"), GetAbsolutePosition($Cover[$Centred_Game][0], "Y"), GetAbsolutePosition($Cover[$Centred_Game][0], "Z"), 5, 0.0003, 0, 1, 0)
-					AddAnimator($Cover[$Centred_Game][0], $Centred_GameMovement)
-					_WinAnimate($Info_child_Gui_trans, $AW_HOR_NEGATIVE, 200)
-					_WinAnimate($Info_child_Gui, $AW_HOR_NEGATIVE, 20)
-					$ModeFlow = 0
-					For $t = 0 To 100 Step 5
-						If $t < 50 Then
-							ControlMove($parentgui, "", $label_gameName, 0, 550 + $t)
-						Else
-							ControlMove($parentgui, "", $label_gameName, 524, -50 + $t, 500)
-						EndIf
-						Sleep(1)
-					Next
-				EndIf
+Run('"' & $Xenia_Path & '" ' & '"' & $Game_Path & "" & $cover[$_move / $cover_distance][1] & "" & $sfilename)
 
-				If $coll = $Cover_Back[$i] And $coll = $Cover_Back[$Centred_Game] Then
-
-					$camVi = 380
-					_SoundPlay($sound, 0)
-					For $deg = 180 To 0 Step -5
-						$camVi -= 5
-						BeginScene(True, True, 0, $icolor_red, $icolor_green, $icolor_blue)
-						SetRotation($Cover[$Centred_Game][0], 0, $deg, 0)
-						RemoveAnimators($Cover[$Centred_Game][0])
-						SetPosition($Cover[$Centred_Game][0], GetAbsolutePosition($Cover[$Centred_Game][0], "X") - 2, 0, GetAbsolutePosition($Cover[$Centred_Game][0], "Z") - 5.5)
-						AddCameraSceneNode(0, 0, 0, $camVi, 0, 0, 0)
-						SceneDraw()
-						GuiDraw()
-						EndScene()
-						Sleep(1)
-					Next
-
-					For $im = 0 To $Gamer_count Step 1
-						SetVisible($Cover_refletLeft[$im], 1)
-						SetVisible($Cover_refletRight[$im], 1)
-					Next
-					For $t = 0 To 50 Step 10
-						ControlMove($parentgui, "", $label_gameName, 0, 600 - $t, 1024)
-						Sleep(1)
-					Next
-					Draw($_Move)
-					_WinAnimate($Info_child_Gui, BitOR($AW_HIDE, $AW_HOR_POSITIVE), 20)
-					_WinAnimate($Info_child_Gui_trans, BitOR($AW_HIDE, $AW_HOR_POSITIVE), 200)
-
-					$ModeFlow = 1
-				EndIf
-			Next
 
 		EndIf
 
