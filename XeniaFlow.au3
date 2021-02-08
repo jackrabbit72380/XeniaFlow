@@ -3,6 +3,7 @@
 #AutoIt3Wrapper_UseX64=n
 #AutoIt3Wrapper_Run_AU3Check=n
 #AutoIt3Wrapper_Tidy_Stop_OnError=n
+#AutoIt3Wrapper_UseX64=n
 #pragma
 #AutoIt3Wrapper_Allow_Decompile=n
 #EndRegion
