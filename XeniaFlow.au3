@@ -320,8 +320,23 @@ _GDIPlus_Startup()
 Opt('MouseCoordMode', 0)
 $Main_Flow_gui = GUICreate($Titel, 1280, 800, -1, -1, $WS_POPUP, $WS_EX_LAYERED)
 
+GUISetBkColor(0xFFFFFF, $Main_Flow_gui)
+WinSetTrans($Main_Flow_gui, "", 255)
+
 GUICtrlCreateLabel('XeniaFlow', 0, 0, 1280, 40, $SS_CENTER, $GUI_WS_EX_PARENTDRAG)
 GUICtrlSetFont(-1, 20, 800)
+
+$Main_Flow_gui = GUICreate($Titel, 1280, 800, -1, -1, $WS_POPUP, $WS_EX_LAYERED)
+Opt('MouseCoordMode', 0)
+$Main_Flow_gui = GUICreate($Titel, 1280, 800, -1, -1, $WS_POPUP, $WS_EX_LAYERED)
+
+GUISetBkColor(0xFFFFFF, $Main_Flow_gui)
+WinSetTrans($Main_Flow_gui, "", 255)
+
+GUICtrlCreateLabel('XeniaFlow', 0, 0, 1280, 40, $SS_CENTER, $GUI_WS_EX_PARENTDRAG)
+GUICtrlSetFont(-1, 20, 800)
+
+GUICtrlCreateLabel('XeniaFlow', 0, 0, 1280, 40, $SS_CENTER, $GUI_WS_EX_PARENTDRAG)
 
 GUICtrlSetColor(-1, $GuiBorderColor)
 GUICtrlSetBkColor(-1, $GuiColor)
