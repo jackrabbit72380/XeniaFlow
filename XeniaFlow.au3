@@ -290,7 +290,7 @@ Local $Fileformat = IniRead($INI, "Config", "FileFormat", -1)
 Global $Background_Image = IniRead($INI, "Config", "BackPic", -1)
 
 If _Singleton("XeniaFlow", 1) = 0 Then
-	MsgBox(48 + 0, "XeniaFlow ®  Warning", "An occurence of XeniaFlow is already running")
+	MsgBox(48 + 0, "XeniaFlow Â®  Warning", "An occurence of XeniaFlow is already running")
 	Exit
 EndIf
 
@@ -358,6 +358,15 @@ Global $device = CreateDeviceOnWindow($Main_Flow_gui, 4, 0, 40, 1280, 720, 32, 4
 $Camera = AddCameraSceneNode(0, 0, 0, 200, 0, 0, 0)
 
 Background($Background_Image)
+
+$BackgroundCam = AddCameraSceneNode(0, 0, 0, 0-200, 0, 0, 0)
+Global $background = AddBillboardSceneNode($BackgroundCam,1280, 720)
+setPosition($background,0,0,105)
+SetMaterialTexture($background,0,GetTexture($TempFolder & "\Background.png"))
+SetMaterialType ( $background , 13 )
+SetMaterialFlag ( $background , $EMF_LIGHTING , 0 )
+SetVisible( $background, 1 )
+
 $backgroundTexture1 = GetTexture($TempFolder & "\FlowBack1.png")
 $backgroundTexture2 = GetTexture($TempFolder & "\FlowBack2.png")
 $backgroundTexture3 = GetTexture($TempFolder & "\FlowBack3.png")
@@ -1409,41 +1418,22 @@ Func _GDIPlus_Resize_image($sInImage, $sOutImage, $iW, $iH)
 EndFunc   ;==>_GDIPlus_Resize_image
 
 Func Background($InImage)
-	FileDelete($TempFolder & "\TempB.png")
-	_GDIPlus_Resize_image($InImage, "TempB.png", 800, 590)
-	$Emptry = _GDIPlus_GraphicsCreateFromHWND($Main_Flow_gui)
-	$hBitmap1 = _GDIPlus_BitmapCreateFromGraphics(600, 800, $Emptry)
-	$hBitmap2 = _GDIPlus_BitmapCreateFromGraphics(600, 800, $Emptry)
-	$hBitmap3 = _GDIPlus_BitmapCreateFromGraphics(600, 800, $Emptry)
-
-	$hGraphic1 = _GDIPlus_ImageGetGraphicsContext($hBitmap1)
-	$hGraphic2 = _GDIPlus_ImageGetGraphicsContext($hBitmap2)
-	$hGraphic3 = _GDIPlus_ImageGetGraphicsContext($hBitmap3)
-
-	$InputImage = _GDIPlus_ImageLoadFromFile($TempFolder & "\TempB.png")
-
-	$CloneImage1 = _GDIPlus_BitmapCloneArea($InputImage, 100, 0, 600, 590, $GDIP_PXF32ARGB)
-	$CloneImage2 = _GDIPlus_BitmapCloneArea($InputImage, 700, 0, 100, 590, $GDIP_PXF32ARGB)
-	$CloneImage3 = _GDIPlus_BitmapCloneArea($InputImage, 0, 0, 100, 590, $GDIP_PXF32ARGB)
-
-	_GDIPlus_GraphicsDrawImageRect($hGraphic1, $CloneImage1, 0, 105, 600, 590)
-	_GDIPlus_ImageSaveToFile($hBitmap1, $TempFolder & "\FlowBack1.png")
-	_GDIPlus_GraphicsDrawImageRect($hGraphic2, $CloneImage2, 0, 105, 100, 590)
-	_GDIPlus_ImageSaveToFile($hBitmap2, $TempFolder & "\FlowBack2.png")
-	_GDIPlus_GraphicsDrawImageRect($hGraphic3, $CloneImage3, 500, 105, 100, 590)
-	_GDIPlus_ImageSaveToFile($hBitmap3, $TempFolder & "\FlowBack3.png")
-
-	_GDIPlus_BitmapDispose($hBitmap1)
-	_GDIPlus_BitmapDispose($hBitmap2)
-	_GDIPlus_BitmapDispose($hBitmap3)
-	_GDIPlus_ImageDispose($InputImage)
-	_GDIPlus_GraphicsDispose($hGraphic1)
-	_GDIPlus_GraphicsDispose($hGraphic2)
-	_GDIPlus_GraphicsDispose($hGraphic3)
-
-	_WinAPI_DeleteObject($CloneImage1)
-	_WinAPI_DeleteObject($CloneImage2)
-	_WinAPI_DeleteObject($CloneImage3)
+   FileDelete($TempFolder & "\TempB.png")
+   FileDelete($TempFolder & "\TempA.png")
+   _GDIPlus_Resize_image($InImage, "TempA.png", 1280, 720)
+   _GDIPlus_Resize_image($InImage, "TempB.png", 1280, 720)
+   $hGraphic = _GDIPlus_GraphicsCreateFromHWND($Main_Flow_gui)
+   $hBitmap = _GDIPlus_BitmapCreateFromGraphics(1280, 720, $hGraphic)
+   $hGraphic1 = _GDIPlus_ImageGetGraphicsContext($hBitmap)
+   $hImage   = _GDIPlus_ImageLoadFromFile($TempFolder & "\TempA.png")
+   $hImage2   = _GDIPlus_ImageLoadFromFile($TempFolder & "\TempB.png")
+   _GDIPlus_GraphicsDrawImageRect($hGraphic1, $hImage, 0, 0, 1280, 720)
+   _GDIPlus_GraphicsDrawImageRect($hGraphic1, $hImage2, 0, 0, 1280, 720)
+   _GDIPlus_ImageSaveToFile($hBitmap, $TempFolder & "\Background.png")
+   _GDIPlus_BitmapDispose($hBitmap)
+   _GDIPlus_GraphicsDispose($hGraphic1)
+   _GDIPlus_ImageDispose($hImage)
+   _GDIPlus_ImageDispose($hImage2)
 EndFunc   ;==>Background
 
 Func _GDIPlus_ImageRotateFlip($hImage, $rfType)
