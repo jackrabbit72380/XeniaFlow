@@ -14,4 +14,4 @@ Version.1 It's Alive!
 We are using illchet3d, AutioIt, SciTe & Photoshop to make this project.
 I'f you know how to fix something please submit a comment!
 Join our Discord to get help or contribute 
-https://discord.gg/CAj8j4Sm
+https://discord.gg/SW8r32Xa
