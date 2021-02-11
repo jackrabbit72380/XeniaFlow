@@ -14,7 +14,13 @@ Xenia is an Xbox360 emulator for Microsoft Windows.
 
 Version.1 It's Alive!
 
-How to! install!  
+1.How to! install!  download this repo and open the XeniaFlow.ini. then configure your path's 
+
+2.save
+
+3.start XeniaFlow.exe
+
+////////////////////////////////////////////////////////////////////////
 
 We are using illchet3d, AutioIt, SciTe & Photoshop to make this project.
 
