@@ -290,7 +290,7 @@ Local $Fileformat = IniRead($INI, "Config", "FileFormat", -1)
 Global $Background_Image = IniRead($INI, "Config", "BackPic", -1)
 
 If _Singleton("XeniaFlow", 1) = 0 Then
-	MsgBox(48 + 0, "XeniaFlow ®  Warning", "An occurence of XeniaFlow is already running")
+	MsgBox(48 + 0, "XeniaFlow Â®  Warning", "An occurence of XeniaFlow is already running")
 	Exit
 EndIf
 
@@ -773,7 +773,7 @@ While IrrRun()
 					Remove($Cover[$i][0])
 				Next
 				Local $compare[2], $Cover_Distance = 70, $Cover_Position[1], $Centred_Game, $camVi = 0, $icolor_red = 0, $icolor_green = 0, $icolor_blue = 0, $ModeFlow = 1, _
-						$Gamer_count = 0, $Games_Result = 0, $_Move = 0, $Titel = "FlowwMii", $backgroundTexture1, $backgroundTexture2, $backgroundTexture3, $Y = 0
+						$Gamer_count = 0, $Games_Result = 0, $_Move = 0, $Titel = "XeniaFlow", $backgroundTexture1, $backgroundTexture2, $backgroundTexture3, $Y = 0
 				ReDim $Cover[1][2], $Cover_Back[1], $Cover_reflet[1], $Cover_refletLeft[1], $Cover_refletRight[1], $Cover_SideLeft[1], $Cover_SideRight[1], $Cover_SideTop[1], $Cover_Name[1], $ListArray[1][2]
 
 				Load_games()
