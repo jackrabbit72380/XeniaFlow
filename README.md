@@ -14,6 +14,8 @@ Xenia is an Xbox360 emulator for Microsoft Windows.
 
 Version.1 It's Alive!
 
+How to! install!  
+
 We are using illchet3d, AutioIt, SciTe & Photoshop to make this project.
 
 I'f you know how to fix something please submit a comment!
