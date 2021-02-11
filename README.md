@@ -6,7 +6,7 @@
 
 ## Screenshot
 
-![Screenshot](https://github.com/jackrabbit72380/XeniaFlow/blob/main/Screenshot2.jpg)
+![Screenshot](https://github.com/jackrabbit72380/XeniaFlow/blob/main/Screenshot.png)
 
 XeniaFlow Is a Windows Appliaction!
 This is a front end for Xenia.exe That is a Windows emulator for the xbox 360.
