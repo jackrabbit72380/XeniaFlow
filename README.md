@@ -2,7 +2,7 @@
 
 ## Icon
 
-![Screenshot](https://github.com/jackrabbit72380/XeniaFlow/blob/main/Xeniaflowiconb.png)
+![Screenshot](https://github.com/jackrabbit72380/XeniaFlow/blob/main/Xeniaflowicon.png)
 
 ## Screenshot
 
