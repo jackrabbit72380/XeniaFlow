@@ -12,11 +12,14 @@ XeniaFlow Is a front end for Xenia.exe.
 
 Xenia is an Xbox360 emulator for Microsoft Windows.
 
-Version.1 It's Alive!
+Version.1 It's Alive! Working with your Xbox360 Game's & movies! supported file type are...
+xbox contaner files, xex, mp4, avi. mkv.
+
+you can click on the x to set a background.
 
 1.How to! install! 
 
-Download this repo and open the XeniaFlow.ini. then configure your path's 
+Download this repo and open the config.ini. then configure your path's 
 
 2.save
 
@@ -26,13 +29,7 @@ Download this repo and open the XeniaFlow.ini. then configure your path's
 
 We are using illchet3d, AutioIt, SciTe & Photoshop to make this project.
 
-I'f you know how to fix something please submit a comment!
-
-Join our Discord to get help or contribute 
+Join our Discord to get help or contribute Enjoy! 
 
 https://discord.gg/SW8r32Xa
 
-Xbox360 Game's
-mp4"
-avi
-mkv
