@@ -6,7 +6,7 @@
 
 ## Screenshot
 
-![Screenshot](https://github.com/jackrabbit72380/XeniaFlow/blob/main/Screenshot2.jpg)
+![Screenshot](https://github.com/jackrabbit72380/XeniaFlow/blob/main/Screenshot2.png)
 
 XeniaFlow Is a front end for Xenia.exe.
 
