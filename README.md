@@ -12,9 +12,12 @@
 
 XeniaFlow Is a front end for Xenia.exe.
 
+However you may also use it to browse your movie library & play back all your mp4 avi or kmv movie files.
+
 Xenia is an Xbox360 emulator for Microsoft Windows.
 
 Version.1 It's Alive! Working with your Xbox360 Game's & movies! supported file type are...
+
 xbox contaner files, xex, mp4, avi. mkv.
 
 you can click on the x to set a background.
