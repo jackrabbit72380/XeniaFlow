@@ -12,7 +12,7 @@
 
 XeniaFlow Is a front end for Xenia.exe.
 
-However you may also use it to browse your movie library & play back all your mp4 avi or kmv movie files.
+However you may also use it to browse your movie library & play back all your mp4, avi or kmv movie files.
 
 all wile displaying high rezolution 3d box art.
 
