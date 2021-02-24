@@ -24,7 +24,7 @@ you can click on the x to set a background.
 
 1.How to! install! 
 
-Download this repo and open the config.ini. then configure your path's 
+Download this repo and open the config.ini. Then configure your path's to your media. 
 
 2.save
 
